@@ -1,7 +1,10 @@
 package modelo;
 
+import java.lang.annotation.Documented;
 import java.sql.*;
 import java.util.*;
+
+import com.itextpdf.*;
 
 public class MascotaDAO {
 
@@ -9,11 +12,11 @@ public class MascotaDAO {
 		List<Mascota> lista = new ArrayList<>();
 		String sql = "SELECT * FROM mascotas";
 
-		
-		
-		//Llama al método Conexion.conectarBD() para obtener una conexión a la base de datos.
+		// Llama al método Conexion.conectarBD() para obtener una conexión a la base de
+		// datos.
 
-        //Si la conexión es null, imprime un error y devuelve la lista vacía (no se puede consultar sin conexión).
+		// Si la conexión es null, imprime un error y devuelve la lista vacía (no se
+		// puede consultar sin conexión).
 		try (Connection con = Conexion.conectarBD()) {
 			if (con == null) {
 				System.err.println("Conexión nula al listar mascotas.");
@@ -34,17 +37,6 @@ public class MascotaDAO {
 		}
 		return lista;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 	public void insertar(Mascota m) {
 		String sql = "INSERT INTO mascotas (nombre, especie, edad) VALUES (?, ?, ?)";
@@ -64,18 +56,9 @@ public class MascotaDAO {
 			System.err.println("Error al insertar mascota: " + e.getMessage());
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 	public Mascota obtenerPorId(int id) {
+
 		Mascota m = null;
 		String sql = "SELECT * FROM mascotas WHERE id = ?";
 
@@ -101,15 +84,6 @@ public class MascotaDAO {
 		}
 		return m;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 	public void actualizar(Mascota m) {
 		String sql = "UPDATE mascotas SET nombre=?, especie=?, edad=? WHERE id=?";
@@ -130,16 +104,6 @@ public class MascotaDAO {
 			System.err.println("Error al actualizar mascota: " + e.getMessage());
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 	public void eliminar(int id) {
 		String sql = "DELETE FROM mascotas WHERE id=?";

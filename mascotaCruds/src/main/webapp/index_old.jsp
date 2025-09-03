@@ -69,57 +69,60 @@ body {
 </head>
 <body>
 
-<div class="card text-center">
-	<div class="card-header">📋 Sistema de Gestión de Personas</div>
-	<div class="card-body">
+	<div class="card text-center">
+		<div class="card-header">📋 Sistema de Gestión de Personas</div>
+		<div class="card-body">
 
-	
-		<%
-		Conexion test = new Conexion();
-		try {
-		    if (!test.conectarBD().isClosed()) {
-		%>
-			<div class="alert alert-success" role="alert">
-				✅ Conectado a la base de datos
-			</div>
-		<%
-		    } else {
-		%>
-			<div class="alert alert-danger" role="alert">
-				❌ No se pudo conectar a la base de datos
-			</div>
-		<%
-		    }
-		} catch (Exception e) {
-		%>
+
+			<%
+			Conexion test = new Conexion();
+			try {
+				if (!test.conectarBD().isClosed()) {
+			%>
+			<div class="alert alert-success" role="alert">✅ Conectado a la
+				base de datos</div>
+			<%
+			} else {
+			%>
+			<div class="alert alert-danger" role="alert">❌ No se pudo
+				conectar a la base de datos</div>
+			<%
+			}
+			} catch (Exception e) {
+			%>
 			<div class="alert alert-warning" role="alert">
-				⚠️ Error: <%= e.getMessage() %>
+				⚠️ Error:
+				<%=e.getMessage()%>
 			</div>
-		<%
-		}
-		%>
+			<%
+			}
+			%>
 
-		<p class="mt-3">Bienvenido al sistema CRUD de personas. Selecciona una opción:</p>
-		<div class="d-grid gap-3 mt-4">
-			<a href="MascotaControlador?accion=listar"
-				class="btn btn-custom btn-green">📑 Lista de mascotas</a>
-			<a href="MascotaControlador?accion=nuevo"
-				class="btn btn-custom btn-blue">➕ Agregar nueva mascota</a>
+			<p class="mt-3">Bienvenido al sistema CRUD de personas.
+				Selecciona una opción:</p>
+			<div class="d-grid gap-3 mt-4">
+				<a href="MascotaControlador?accion=listar"
+					class="btn btn-custom btn-green">📑 Lista de mascotas</a> <a
+					href="MascotaControlador?accion=nuevo"
+					class="btn btn-custom btn-blue">➕ Agregar nueva mascota</a>
+			</div>
+
+			<hr class="my-4">
+
+			<!-- Enlaces adicionales -->
+			<div class="d-grid gap-2">
+				<a href="TestConexion" class="btn btn-outline-light">🔗 Probar
+					conexión a la BD</a> <a href="vistas/formulario.jsp"
+					class="btn btn-outline-light">📄 Ver formulario</a>
+			</div>
 		</div>
-
-		<hr class="my-4">
-
-		<!-- Enlaces adicionales -->
-		<div class="d-grid gap-2">
-			<a href="TestConexion" class="btn btn-outline-light">🔗 Probar conexión a la BD</a>
-			<a href="vistas/formulario.jsp" class="btn btn-outline-light">📄 Ver formulario</a>
-		</div>
+		<div class="card-footer">Desarrollado con pasión por la
+			tecnología</div>
 	</div>
-	<div class="card-footer">Desarrollado con pasión por la tecnología</div>
-</div>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+	<!-- Bootstrap JS -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
 
